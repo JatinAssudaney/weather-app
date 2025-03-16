@@ -119,6 +119,9 @@ const styles = StyleSheet.create({
     height: 36,
   },
   searchBar: {
+    zIndex: 1,
+    width: "100%",
+    height: "100%",
     opacity: 0.5,
     color: Colors.dark.secondaryText,
     borderColor: "transparent",

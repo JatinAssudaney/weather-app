@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://weather-backend-4o1z.onrender.com";
 export const LOCATION_ENDPOINT = "/location";
 export const WEATHER_ENDPOINT = "/weather";
 

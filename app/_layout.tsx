@@ -13,6 +13,7 @@ export default function RootLayout() {
         <LinearGradient
           colors={[colors.gradientStart, colors.gradientEnd]}
           style={{
+            zIndex: -1,
             position: "absolute",
             left: 0,
             right: 0,
