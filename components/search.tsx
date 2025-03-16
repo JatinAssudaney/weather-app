@@ -11,6 +11,7 @@ import Colors from "@/constants/Colors";
 import { debounce } from "lodash";
 import { Location } from "@/types";
 import { searchLocation } from "@/api";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 const MIN_SEARCH_LIMIT = 3;
 
@@ -68,15 +69,18 @@ const LocationSearch = () => {
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={textInputStyles}
-        value={searchQuery}
-        onChangeText={handleSearchChange}
-        placeholderTextColor={Colors.dark.secondaryText}
-        placeholder="Search for a location"
-        editable={true}
-        selectTextOnFocus={true}
-      />
+      <View style={styles.searchBarContainer}>
+        <Icon name="search" size={16} style={styles.icon} />
+        <TextInput
+          style={textInputStyles}
+          value={searchQuery}
+          onChangeText={handleSearchChange}
+          placeholderTextColor={Colors.dark.secondaryText}
+          placeholder="Search for a location"
+          editable={true}
+          selectTextOnFocus={true}
+        />
+      </View>
 
       {searchResults.length > 0 && (
         <FlatList
@@ -98,14 +102,21 @@ const styles = StyleSheet.create({
     zIndex: 1,
     width: "100%",
   },
-  searchBar: {
-    height: 36,
-    borderColor: "#fff",
-    opacity: 0.5,
-    borderRadius: 8,
+  searchBarContainer: {
+    width: "100%",
+    flexDirection: "row",
     borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#fff",
+    alignItems: "center",
     paddingHorizontal: 8,
+    gap: 4,
+    height: 36,
+  },
+  searchBar: {
+    opacity: 0.5,
     color: Colors.dark.secondaryText,
+    borderColor: "transparent",
   },
   searchResults: {
     position: "absolute",
@@ -120,5 +131,9 @@ const styles = StyleSheet.create({
   },
   resultItemText: {
     color: Colors.dark.text,
+  },
+  icon: {
+    color: Colors.dark.secondaryText,
+    opacity: 0.5,
   },
 });
