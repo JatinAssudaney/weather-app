@@ -7,6 +7,7 @@ const gradientStart = "#422E5A";
 const gradientEnd = "#1C1B33";
 const cardGradientStart = "#5936B4";
 const cardGradientEnd = "#5936B4";
+const backgroundColor = "#1F1D47";
 
 export default {
   light: {
@@ -20,6 +21,7 @@ export default {
     gradientEnd: gradientEnd,
     cardGradientStart,
     cardGradientEnd,
+    backgroundColor,
   },
   dark: {
     text: "#fff",
@@ -32,5 +34,6 @@ export default {
     gradientEnd: gradientEnd,
     cardGradientStart,
     cardGradientEnd,
+    backgroundColor,
   },
 };

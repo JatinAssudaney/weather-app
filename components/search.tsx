@@ -9,9 +9,8 @@ import {
 import React, { useState, useCallback } from "react";
 import Colors from "@/constants/Colors";
 import { debounce } from "lodash";
-import axios from "axios";
 import { Location } from "@/types";
-import { SEARCH_LOCATION } from "@/constants/server";
+import { searchLocation } from "@/api";
 
 const MIN_SEARCH_LIMIT = 3;
 
@@ -24,14 +23,8 @@ const LocationSearch = () => {
       setSearchResults([]);
       return;
     }
-    try {
-      const { data }: { data: Location[] } = await axios.get(
-        `${SEARCH_LOCATION}?search-term=${query}`
-      );
-      setSearchResults(data);
-    } catch (error) {
-      console.error("Error fetching search results:", error);
-    }
+    const data = await searchLocation(query);
+    setSearchResults(data);
   };
 
   const debouncedFetchSearchResults = useCallback(
