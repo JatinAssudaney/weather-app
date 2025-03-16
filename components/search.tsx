@@ -15,7 +15,11 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 
 const MIN_SEARCH_LIMIT = 3;
 
-const LocationSearch = () => {
+interface LocationSearchProps {
+  onPress: (item: Location) => void;
+}
+
+const LocationSearch = ({ onPress }: LocationSearchProps) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [searchResults, setSearchResults] = useState<Location[]>([]);
 
@@ -38,9 +42,10 @@ const LocationSearch = () => {
     debouncedFetchSearchResults(text);
   };
 
-  const handlePress = (item: any) => {
-    setSearchQuery(item.name);
-    setSearchResults([]); // Hide results after selection
+  const handlePress = (item: Location) => {
+    onPress(item);
+    setSearchQuery("");
+    setSearchResults([]);
   };
 
   const renderItem = ({ item }: { item: Location }) => {
