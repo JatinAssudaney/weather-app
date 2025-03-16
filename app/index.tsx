@@ -1,15 +1,18 @@
-import { Text, View } from "react-native";
+import CardList from "@/components/card-list";
+import { StyleSheet, View } from "react-native";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+    <View style={styles.app}>
+      <CardList />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  app: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
